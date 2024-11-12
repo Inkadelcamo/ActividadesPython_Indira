@@ -42,3 +42,15 @@ for num in range(1, 6):
         print(f"{num} es par")
     else:
         print(f"{num} es impar")
+
+
+# Definir una función para convertir a Fahrenheit
+def convertir_a_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+# Solicitar la temperatura en Celsius al usuario
+celsius = float(input("Ingrese la temperatura en Celsius: "))
+resultado = convertir_a_fahrenheit(celsius)
+print(f"La temperatura en grados Fahrenheit es: {resultado}")
+
