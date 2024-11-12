@@ -54,3 +54,29 @@ celsius = float(input("Ingrese la temperatura en Celsius: "))
 resultado = convertir_a_fahrenheit(celsius)
 print(f"La temperatura en grados Fahrenheit es: {resultado}")
 
+
+#CADENA DE TEXTO
+cadena = input("Ingresa una cadena de texto: ")
+vocales = "aeiouAEIOU"
+contador_vocales = 0
+
+for caracter in cadena:
+    if caracter in vocales:
+        contador_vocales += 1
+
+print("La cantidad de vocales es:", contador_vocales)
+
+
+#CALCULAR FACTORIAL
+
+numero = int(input("Ingresa un número para calcular su factorial: "))
+factorial = 1
+contador = 1
+
+while contador <= numero:
+    factorial *= contador
+    contador += 1
+
+print(f"El factorial de {numero} es:", factorial)
+
+
