@@ -12,3 +12,26 @@ if agua_caliente and bolsa_te:
     print("6. Servir el té caliente.")
 else:
     print("No es posible preparar el té caliente porque falta agua caliente o bolsa de te.")
+
+Codigo calcular promedio
+
+#Variables para almacenar las notas
+Nota1= 3.5
+Nota2= 4.0
+Nota3= 4.8
+
+#Calcular el promedio
+promedio= (Nota1 + Nota2 + Nota3)/3
+print("el promedio de las notas es:", promedio)
+
+
+Verificar si un numero es par o impar
+#Solicitar el numero al usuario
+numero= int (input("Ingrese un numero:"))
+# Verificar si es par o impar
+if numero % 2==0:
+  print (f"{numero} es un numero par")
+
+else: 
+  print(f"{numero} es un numero impar")
+  
