@@ -1,0 +1,14 @@
+Preparar té
+#Algoritmo en código
+agua_caliente= True
+bolsa_te = True
+
+if agua_caliente and bolsa_te:
+    print("1. Hervir agua.")
+    print("2. Colocar una bolsa de té en una taza.")
+    print("3. Verter el agua caliente en la taza.")
+    print("4. Dejar reposar por 3-5 minutos.")
+    print("5. Retirar la bolsa de té.")
+    print("6. Servir el té caliente.")
+else:
+    print("No es posible preparar el té caliente porque falta agua caliente o bolsa de te.")
