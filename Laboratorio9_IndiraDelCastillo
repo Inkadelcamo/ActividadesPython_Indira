@@ -13,3 +13,35 @@ data= {
 df = pd.DataFrame(data)
 print(df)
 
+ASEGURAMIENTO DE LA CALIDAD DE DATOS
+
+import pandas as pd
+import numpy as np
+
+# Datos originales
+data = {  
+  "Nombre": ["Juan", "Ana", "Pedro", "Maria", "Luis", "Ana"],
+  "Edad": [28, 34, None, 45, 38, 34],
+  "Salario": ["3000", "4000", "cinco mil", "4500", "4000", "5000"],
+  "FechaIngreso": ["2021-01-15", "2020/03/12", "2022-07-01", "2021/12/01", "2021-05-20", "2020-03-12"]
+}
+
+df = pd.DataFrame(data)
+
+# 1. Identificar y contar los valores faltantes en cada columna
+valores_faltantes = df.isnull().sum()
+print("Valores faltantes por columna:\n", valores_faltantes)
+
+# 2. Verificar el formato de la columna 'Salario' para asegurar que todos los valores sean numéricos
+# Crear una nueva columna que indique si el valor es numérico
+df['Salario_Num'] = pd.to_numeric(df['Salario'], errors='coerce')
+valores_no_numericos = df[df['Salario_Num'].isnull()]
+print("\nValores no numéricos en la columna 'Salario':\n", valores_no_numericos)
+
+# 3. Validar y estandarizar el formato de la columna 'Fecha Ingreso' a YYYY-MM-DD
+df['FechaIngreso_Estandar'] = pd.to_datetime(df['FechaIngreso'], errors='coerce')
+errores_fecha = df[df['FechaIngreso_Estandar'].isnull()]
+print("\nErrores en la columna 'Fecha Ingreso':\n", errores_fecha)
+
+# Mostrar el DataFrame con las columnas actualizadas
+print("\nDataFrame actualizado:\n", df)
