@@ -82,3 +82,31 @@ plt.ylabel("Puntuación en el examen", fontsize=12)
 
 # Paso 6: Mostrar el gráfico
 plt.show()
+
+
+GRAFICO HISTOGRAMA
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Paso 2: Crear el DataFrame con los datos
+datos = pd.DataFrame({
+    "Puntuacion": [50, 60, 65, 70, 75, 78, 80, 82, 85, 87, 90, 92, 94, 96, 98, 99, 100, 102, 103, 105],
+    "Nivel de Motivacion": ["Baja", "Media", "Media", "Alta", "Alta", "Media", "Media", "Alta", "Alta", "Baja", 
+                            "Alta", "Alta", "Media", "Alta", "Alta", "Media", "Alta", "Media", "Alta", "Media"]
+})
+
+# Paso 3: Configurar el estilo de Seaborn
+sns.set_style("whitegrid")
+
+# Paso 4: Graficar los datos en Histograma
+sns.histplot(data=datos, x="Puntuacion", hue="Nivel de Motivacion", multiple="stack", palette="viridis", bins=5)
+
+# Paso 5: Personalizar el gráfico
+plt.title("Distribución de puntuaciones según el nivel de motivación", fontsize=14)
+plt.xlabel("Puntuación en el examen", fontsize=12)
+plt.ylabel("Frecuencia", fontsize=12)
+
+# Paso 6: Mostrar el gráfico
+plt.show()
