@@ -49,3 +49,14 @@ print ()
 arr = arr.reshape (2, 6)
 print ("Array despues de reshape (2x6)")
 print (arr)
+
+
+-	Generar una matriz aleatoria de 3x3 y calcular su transpuesta.
+import numpy as np
+arr = np.random.rand(3, 3)
+print("Matriz original:")
+print(arr)
+print()
+transpuesta = arr.T
+print("Matriz transpuesta:")
+print(transpuesta)
