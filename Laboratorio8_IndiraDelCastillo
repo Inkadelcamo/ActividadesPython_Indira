@@ -110,3 +110,43 @@ plt.ylabel("Frecuencia", fontsize=12)
 
 # Paso 6: Mostrar el gráfico
 plt.show()
+
+
+CREACION DE GRAFICO DE LINEAS
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Paso 2: Crear el DataFrame con los datos
+datos = pd.DataFrame({
+    "Mes": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "SUV": [120, 139, 135, 140, 150, 160, 170, 180, 175, 185, 190, 200],
+    "Sedan": [100, 90, 95, 110, 120, 130, 140, 145, 150, 160, 170, 180],
+    "Hatchback": [80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135]
+})
+
+# Paso 3: Configurar el estilo de Seaborn
+sns.set_style("whitegrid")
+
+# Paso 4: Graficar de líneas con Matplotlib
+plt.plot(datos["Mes"], datos["SUV"], label="SUV", marker="o", color="green", linestyle="--")
+plt.plot(datos["Mes"], datos["Sedan"], label="Sedan", marker="s", color="brown", linestyle="-.")
+plt.plot(datos["Mes"], datos["Hatchback"], label="Hatchback", marker="^", color="black", linestyle=":")
+
+# Paso 5: Personalizar el gráfico
+plt.title("Ventas Mensuales de Vehículos por Tipo", fontsize=14)
+plt.xlabel("Meses", fontsize=12)
+plt.ylabel("Ventas (unidades)", fontsize=12)
+
+# Paso 6: Rotar las etiquetas del eje x para que se vean claramente
+plt.xticks(rotation=45, ha="right")
+
+# Paso 7: Añadir leyenda
+plt.legend()
+
+# Paso 8: Ajustar el diseño para que las etiquetas no se superpongan
+plt.tight_layout()
+
+# Paso 9: Mostrar el gráfico
+plt.show()
