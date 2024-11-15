@@ -1,0 +1,23 @@
+------------------------------PARTE 1 -------------------------------------
+REALIZACION DE UN GRAFICO
+import matplotlib.pyplot as plt
+
+# Paso 2: Datos de venta por ciudad
+Productos = ["Prod A", "Prod B", "Prod C", "Prod D", "Prod E", "Prod F", "Prod G", "Prod H"]
+Bogota = [150, 100, 250, 80, 150, 200, 110, 230]
+Cali = [200, 180, 240, 180, 100, 300, 150, 290]
+Bucaramanga = [250, 220, 300, 380, 450, 400, 310, 430]
+
+# Paso 3: Crear gráfico de barras apiladas
+plt.bar(Productos, Bogota, label="Bogotá", color="red")
+plt.bar(Productos, Cali, bottom=Bogota, label="Cali", color="yellow")
+plt.bar(Productos, Bucaramanga, bottom=[i + j for i, j in zip(Bogota, Cali)], label="Bucaramanga", color="blue")
+
+# Paso 4: Añadir etiquetas, título y leyenda
+plt.xlabel("Productos")
+plt.ylabel("Ventas (Unidades)")
+plt.title("Comparación de Ventas por Producto y Ciudad")
+plt.legend()
+
+# Paso 5: Mostrar gráfico
+plt.show()
