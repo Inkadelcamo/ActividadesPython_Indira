@@ -25,3 +25,15 @@ import numpy as np # Importing the necessary library
 
 df= pd.DataFrame(np.random.rand(100,8)) # Corrected the typo in 'DataFrame'
 print(df.describe())
+
+
+----------------------------------------------PARTE 2 --------------------------------------------------
+
+ARRAY DE NUMEROS DE 1 AL 10
+
+import numpy as np
+arr = np.arange(1,11)
+print("Array:",arr)
+print("Suma:",arr.sum())
+print("Media:",arr.mean())
+print("Máximo:",arr.max())
