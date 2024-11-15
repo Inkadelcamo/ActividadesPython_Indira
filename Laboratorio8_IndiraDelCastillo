@@ -21,3 +21,36 @@ plt.legend()
 
 # Paso 5: Mostrar gráfico
 plt.show()
+
+REALIZACION 2 GRAFICO
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Paso 2: Crear el DataFrame con las ventas por producto y ciudad
+datos = pd.DataFrame({
+    "Mes": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto"],
+    "Papa (Cali)": [100, 150, 200, 250, 300, 400, 300, 150],
+    "Cebolla (Bogota)": [90, 120, 160, 200, 240, 100, 200, 150],
+    "Tomate (Cartagena)": [80, 110, 150, 190, 230, 330, 350, 240]
+})
+
+# Paso 3: Configurar el estilo de Seaborn
+sns.set_style("whitegrid")
+
+# Paso 4: Graficar los datos
+plt.plot(datos["Mes"], datos["Papa (Cali)"], marker="o", color="blue", label="Papa (Cali)")
+plt.plot(datos["Mes"], datos["Cebolla (Bogota)"], marker="o", color="purple", label="Cebolla (Bogota)")
+plt.plot(datos["Mes"], datos["Tomate (Cartagena)"], marker="o", color="green", label="Tomate (Cartagena)")
+
+# Paso 5: Personalizar el gráfico con títulos y etiquetas
+plt.title("Evolución de ventas por producto y ciudad", fontsize=14)
+plt.xlabel("Meses", fontsize=12)
+plt.ylabel("Ventas (Unidades)", fontsize=12)
+
+# Paso 6: Añadir leyenda
+plt.legend()
+
+# Paso 7: Mostrar el gráfico
+plt.show()
