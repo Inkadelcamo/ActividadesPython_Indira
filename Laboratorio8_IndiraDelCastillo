@@ -54,3 +54,31 @@ plt.legend()
 
 # Paso 7: Mostrar el gráfico
 plt.show()
+
+
+GRAFICO 3 
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Paso 2: Crear el DataFrame con los datos
+datos = pd.DataFrame({
+    "Horas estudiadas": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "Puntuacion en el examen": [50, 60, 65, 70, 75, 78, 80, 82, 85, 87, 90, 92, 94, 96, 98, 99, 100, 102, 100, 100], 
+    "Nivel de Motivacion": [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 80, 85, 90, 95, 100, 105, 110, 115, 120], 
+})
+
+# Paso 3: Configurar el estilo de Seaborn
+sns.set_style("whitegrid")
+
+# Paso 4: Graficar los datos
+sns.scatterplot(x="Horas estudiadas", y="Puntuacion en el examen", size="Nivel de Motivacion", hue="Nivel de Motivacion", data=datos, palette="viridis", sizes=(50, 300))
+
+# Paso 5: Personalizar el gráfico
+plt.title("Relación entre horas de estudio, puntuación y motivación", fontsize=14)
+plt.xlabel("Horas de estudio", fontsize=12)
+plt.ylabel("Puntuación en el examen", fontsize=12)
+
+# Paso 6: Mostrar el gráfico
+plt.show()
