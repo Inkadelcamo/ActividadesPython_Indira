@@ -1,0 +1,15 @@
+-------------------------PARTE 1--------------------------------------------------------
+TRANSCRIPCION DE LOS DATOS ORIGINALES PARA CREAR DATAFRAME
+import pandas as pd
+
+#Datos originales
+data= {  
+  "Nombre": ["Juan", "Ana", "Pedro", "Maria", "Luis", "Ana"],
+  "Edad": [28, 34, None, 45, 38,34],
+  "Salario": ["3000", "4000", "cinco mil", "4500", "4000", "5000"],
+  "FechaIngreso": ["2021-01-15", "2020/03/12", "2022-07-01", "2021/12/01", "2021-05-20", "2020-03-12"]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
