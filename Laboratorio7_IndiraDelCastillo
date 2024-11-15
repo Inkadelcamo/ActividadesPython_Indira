@@ -1,0 +1,9 @@
+import pandas as pd
+
+data = {
+'Nombre': ['Camila','Deisy','Sol','Glendy','Yeiner','Fabian','Leodan','Carlos'],
+'Profesion': ['Estudiante','Enfermera','Ama de casa','Medico','Odontologo','Administrador','Conductor','Abogado']  ,
+ 'Paises': ['Colombia','Venezuela','Ecuador','Chile','Argentina','Peru','Uruguay','Brasil']
+  }
+df= pd.DataFrame(data)
+print(df)   
