@@ -17,3 +17,11 @@ df = pd.read_json('data.json')
 # Mostrar las 5 primeras filas del DataFrame
 print(df.head())
 
+
+GENERACION DE DATAFRAME CON 100 FILAS Y 8 COLUMNAS
+
+import pandas as pd
+import numpy as np # Importing the necessary library
+
+df= pd.DataFrame(np.random.rand(100,8)) # Corrected the typo in 'DataFrame'
+print(df.describe())
