@@ -75,3 +75,50 @@ missing_values = df.isnull().sum()
 
 # Resultados
 print("1. Valores faltantes por columna:\n", missing_values)
+
+
+CAMBIAR SALARIO EN LETRA POR NUMERO
+
+import pandas as pd
+import numpy as np
+
+# Crear el DataFrame con los datos proporcionados
+data = {
+    "Nombre": ["Juan", "Ana", "Pedro", "María", "Luis", "Carla"],
+    "Edad": [28, None, 40, 45, 38, 34],
+    "Salario": [3000, 4000, 4500, "cuatro mil", 5000, 4000],
+    "Cargo": ["Analista", "Gerente", "Desarrollador", "Gerente", "Analista", None],
+    "FechaIngreso": [
+        "2021-01-15",
+        "2020/03/12",
+        "2022-07-01",
+        "2021/12/01",
+        None,
+        "2020-03-12",
+    ],
+}
+
+df = pd.DataFrame(data)
+
+# 1. Reemplazar "cuatro mil" por 4000 en la columna "Salario"
+df["Salario"] = df["Salario"].replace("cuatro mil", 4000)
+
+# 2. Verificar que los valores en "Salario" sean numéricos
+def validate_salary(value):
+    try:
+        return float(value)  # Intentar convertir el valor a número
+    except (ValueError, TypeError):  # Asegurarse de cubrir ambos errores
+        return np.nan  # Si falla, es un dato no válido
+
+df["Salario"] = df["Salario"].apply(validate_salary)
+
+# Mostrar el DataFrame modificado
+print(df)
+
+
+
+
+
+
+
+
