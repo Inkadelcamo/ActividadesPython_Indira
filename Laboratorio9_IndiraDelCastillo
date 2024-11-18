@@ -117,8 +117,42 @@ print(df)
 
 
 
+ESTANDARIZAR FECHAS 
 
+import pandas as pd
+import numpy as np
 
+# Crear el DataFrame con los datos proporcionados
+data = {
+    "Nombre": ["Juan", "Ana", "Pedro", "María", "Luis", "Carla"],
+    "Edad": [28, None, 40, 45, 38, 34],
+    "Salario": [3000, 4000, 4500, 4000, 5000, 4000],
+    "Cargo": ["Analista", "Gerente", "Desarrollador", "Gerente", "Analista", None],
+    "FechaIngreso": [
+        "2021-01-15",
+        "2020/03/12",
+        "2022-07-01",
+        "2021/12/01",
+        None,
+        "2020-03-12",
+    ],
+}
 
+df = pd.DataFrame(data)
+
+# Validar y estandarizar el formato de "FechaIngreso" a YYYY-MM-DD
+def validate_date(value):
+    try:
+        if pd.isnull(value):  # Si el valor es nulo, devolvemos NaN
+            return np.nan
+        # Convertir el valor a formato de fecha estándar
+        return pd.to_datetime(value, errors="coerce").strftime("%Y-%m-%d")
+    except (ValueError, TypeError):  # Manejo de errores
+        return np.nan
+
+df["FechaIngreso"] = df["FechaIngreso"].apply(validate_date)
+
+# Mostrar el DataFrame modificado
+print(df)
 
 
