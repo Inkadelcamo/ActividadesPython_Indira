@@ -47,3 +47,50 @@ df.dropna(subset=["Nombre"], inplace=True)
 
 print("\nDatos después de limpieza:")
 print(df)
+
+
+EJERCICIO 2
+
+import pandas as pd
+import numpy as np
+
+# Datos originales
+data = {
+    "ClienteID":[ 1, 2, 3, 4, 5],
+    "Producto": ["A", "B", "C", "D", "E"],
+    "Cantidad": [10, 20, None, 5, 15],
+    "Precio": ["100" , "200$" , "300", "cuatrocientos", "500"],
+    "FechaTransaccion": ["2023-01-15", "2023/02/20", "2023-03-24", "2023/04/30", "2023-05-10"  ], }
+
+#Crear DataFrame
+df = pd.DataFrame(data)
+print("Datos originales:")
+print(df)
+
+#1 Imputar valores faltantes en cantidad con la mediana de la columna
+df["Cantidad"]= df["Cantidad"]. fillna(df["Cantidad"].median())
+
+
+#2 Corregir Formato en Precio
+df["Precio"] = df["Precio"].replace("cuatrocientos", "400")
+df["Precio"] = df["Precio"].str.replace(r"[^0-9]", "", regex=True).astype(int)
+
+#Estandarizar el formato de Fecha de Transacción
+def validate_date(value):
+    try:
+        if pd.isnull(value):  # Si el valor es nulo, devolvemos NaN
+            return np.nan
+        # Convertir el valor a formato de fecha estándar
+        return pd.to_datetime(value, errors="coerce").strftime("%Y-%m-%d")
+    except (ValueError, TypeError):  # Manejo de errores
+        return np.nan
+df["FechaTransaccion"] = df["FechaTransaccion"].apply(validate_date)
+
+print("\nDatos después de limpieza:")
+print(df)
+
+#Verificar valores faltantes y tipos de datos 
+print("\nVerificacion final:")
+print(df. isnull(). sum())
+print(df.dtypes)
+
