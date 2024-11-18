@@ -1,0 +1,41 @@
+EJERCICIO 1
+
+import pandas as pd
+import numpy as np
+
+# Datos originales
+data = {
+    "Nombre": ["Carlos", "Ana", "Luis", "Pedro", "Maria", None],
+    "Edad": [34, 29, None, 45, 25, 33],
+    "FechaIngreso": [
+        "2021-01-15",
+        "2020/03/12",
+        "2022-07-01",
+        "2021/12/01",
+        "2021-05-20",
+        "2020-03-12",
+    ],
+    "ResultadoPrueba": ["Positivo", "Negativo", "Positivo", "Positivo", "Negativo", "Negativo"],
+}
+
+df = pd.DataFrame(data)
+
+print("Datos originales:")
+print(df)
+
+# 1. Identificar y contar valores faltantes
+print("\nValores faltantes:")
+print(df.isnull().sum())
+
+# 2. Validar y corregir formato de Fecha de Ingreso
+df["FechaIngreso"] = pd.to_datetime(df["FechaIngreso"], errors="coerce")
+
+# 3. Imputar valores faltantes en "Edad" con la media
+df["Edad"] = pd.to_numeric(df["Edad"], errors="coerce")  # Asegurar valores numéricos
+df["Edad"].fillna(df["Edad"].mean(), inplace=True)
+
+# 4. Eliminar registros con nombres faltantes
+df.dropna(subset=["Nombre"], inplace=True)
+
+print("\nDatos después de limpieza:")
+print(df)
