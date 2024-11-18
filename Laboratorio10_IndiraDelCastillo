@@ -94,3 +94,38 @@ print("\nVerificacion final:")
 print(df. isnull(). sum())
 print(df.dtypes)
 
+
+EJERCICIO 3
+
+import pandas as pd
+
+#Datos originales
+data= {
+    "Nombre": ["Juan", "Maria", "Pedro", "Ana", "Luisa", "Carlos", "Juan"],
+    "Edad": [25, 30, None, 29, 28, 200, 25],
+    "Email": ["juan@mail.com", "maria@mail.com", "pedro@mail.com", "ana@mail.com", "luisa@mail.com", "carlos@mail.com", "juan@mail.com" ],
+    "Pais": ["colombia", "Colombia", "Mexico", "Argentina", "Colombia", "Brazil", "colombia"],
+    "Genero": ["M", "F", "H", "F", "Femenino", "M", "M"],
+    "Visitas": [5, 7, 6, 4, 8, 2, 5],}
+
+# Crear el DataFrame
+df = pd.DataFrame(data)
+
+#Rellenar valores faltantes de la Edad Utilizando la mediana
+df["Edad"].fillna(df["Edad"]. median(), inplace=True)
+
+
+#Eliminar registros duplicados
+df.drop_duplicates(inplace=True)
+
+#Estandarizar el genero y el pais
+df["Genero"].replace({"H": "Masculino", "M": "Masculino", "F": "Femenino", "Femenino": "Femenino"}, inplace=True)
+df["Pais"]= df["Pais"].str.capitalize()
+
+
+#Corregir edades
+df.loc[df["Edad"]> 100, "Edad"] = df["Edad"].median()
+
+#Ver datos limpios
+print ("\nDatos limpios")
+print(df)
