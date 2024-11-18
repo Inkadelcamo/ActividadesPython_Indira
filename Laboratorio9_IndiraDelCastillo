@@ -193,3 +193,20 @@ print (df)
 
 ------------------------------PARTE 2--------------------------------------------
 
+CALCULAR DATOS INVALIDOS
+
+import pandas as pd
+
+
+# Crear el DataFrame con los datos proporcionados
+data = {
+    "Productos": ["Producto A", "Producto B", "Producto C", "Producto D"],
+    "Precio": [150, -25, 100, None],}  #Precio Negativo y valor faltante
+df = pd.DataFrame(data)
+
+df["Validacion Precio"]= df ["Precio"]. apply(lambda x: "Valido" if pd.notnull(x) and x >= 0 else "Invalido")
+
+df_invaludis = df[df["Validacion Precio"] == "Invalido"] 
+
+display(df_invaludis)
+
