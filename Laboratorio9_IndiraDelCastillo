@@ -210,3 +210,22 @@ df_invaludis = df[df["Validacion Precio"] == "Invalido"]
 
 display(df_invaludis)
 
+
+VERFICAR DUPLICADOS
+
+import pandas as pd
+
+
+# Crear el DataFrame con los datos proporcionados
+clientes = {
+    "ID_Cliente": [1, 2, 3, 2, 4],
+    "Nombre": ["Ana", "Luis", "Maria", "Luis", "Carlos",],}
+df_clientes = pd.DataFrame(clientes)
+duplicados = df_clientes[df_clientes.duplicated(subset="Nombre", keep=False)]
+def display_dataframe_to_user(name, dataframe):
+    print(f"DataFrame {name}:")
+    display(dataframe)
+
+display_dataframe_to_user(name="Clientes Duplicados", dataframe=duplicados)
+
+
