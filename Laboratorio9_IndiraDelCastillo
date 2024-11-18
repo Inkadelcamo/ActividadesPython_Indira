@@ -229,3 +229,31 @@ def display_dataframe_to_user(name, dataframe):
 display_dataframe_to_user(name="Clientes Duplicados", dataframe=duplicados)
 
 
+
+ENCRIPTAR/DESENCRIPTAR
+
+from cryptography.fernet import Fernet
+
+# Generar clave de encriptación
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
+
+# Datos a encriptar
+datos_sensibles = "1582-7890-5431-5543".encode()
+
+# Encriptar los datos
+datos_encriptados = cipher_suite.encrypt(datos_sensibles)
+
+# Desencriptar los datos
+datos_desencriptados = cipher_suite.decrypt(datos_encriptados).decode()
+
+# Resultado
+resultado_encriptacion = {
+    "datos_encriptados": datos_encriptados,
+    "datos_desencriptados": datos_desencriptados
+}
+
+resultado_encriptacion
+
+
+
