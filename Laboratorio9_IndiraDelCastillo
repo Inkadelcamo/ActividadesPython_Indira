@@ -156,3 +156,36 @@ df["FechaIngreso"] = df["FechaIngreso"].apply(validate_date)
 print(df)
 
 
+VERIFICAR FALTANTES
+
+import pandas as pd
+import numpy as np
+
+# Crear el DataFrame con los datos proporcionados
+data = {
+    "Nombre": ["Juan", "Ana", "Pedro", "María", "Luis", "Carla"],
+    "Edad": [28, None, 40, 45, 38, 34],
+    "Salario": [3000, 4000, 4500, 4000, 5000, 4000],
+    "Cargo": ["Analista", "Gerente", "Desarrollador", "Gerente", "Analista", None],
+    "FechaIngreso": [
+        "2021-01-15",
+        "2020-03-12",
+        "2022-07-01",
+        "2021-12-01",
+        None,
+        "2020-03-12",
+    ],
+}
+
+df = pd.DataFrame(data)
+
+
+# 4. Verificar que no haya valores faltantes en "Cargo"
+cargo_missing = df["Cargo"].isnull().sum()
+
+# Resultados
+
+print("Cantidad de valores faltantes en 'Cargo':", cargo_missing)
+
+print (df)
+
